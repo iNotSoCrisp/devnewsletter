@@ -4,6 +4,8 @@
 # Build outputs
 **/dist/
 **/.vite/
+**/.next/
+**/.turbo/
 
 # Env files
 **/.env
