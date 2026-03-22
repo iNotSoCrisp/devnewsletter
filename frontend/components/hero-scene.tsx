@@ -56,22 +56,22 @@ function CoreCluster({ speed = 1 }: { speed?: number }) {
 
       <mesh ref={ringOneRef} rotation={[1.1, 0.2, 0.35]}>
         <torusGeometry args={[2.3, 0.055, 32, 220]} />
-        <meshStandardMaterial color="#f7a262" emissive="#f7a262" emissiveIntensity={1.25} metalness={0.9} roughness={0.22} />
+        <meshStandardMaterial color="#f7a262" emissive="#f7a262" emissiveIntensity={0.5} metalness={0.9} roughness={0.22} />
       </mesh>
 
       <mesh ref={ringTwoRef} rotation={[0.45, 0.9, 0.6]}>
         <torusGeometry args={[2.85, 0.035, 16, 180]} />
-        <meshStandardMaterial color="#d4ff64" emissive="#d4ff64" emissiveIntensity={1.4} metalness={0.95} roughness={0.12} />
+        <meshStandardMaterial color="#d4ff64" emissive="#d4ff64" emissiveIntensity={0.5} metalness={0.95} roughness={0.12} />
       </mesh>
 
       <mesh position={[-2.35, -1.2, -0.55]}>
         <sphereGeometry args={[0.22, 32, 32]} />
-        <meshStandardMaterial color="#76f2ff" emissive="#76f2ff" emissiveIntensity={2} />
+        <meshStandardMaterial color="#76f2ff" emissive="#76f2ff" emissiveIntensity={0.8} />
       </mesh>
 
       <mesh position={[2.1, 1.5, 0.4]}>
         <sphereGeometry args={[0.14, 32, 32]} />
-        <meshStandardMaterial color="#f7a262" emissive="#f7a262" emissiveIntensity={2} />
+        <meshStandardMaterial color="#f7a262" emissive="#f7a262" emissiveIntensity={0.8} />
       </mesh>
     </group>
   );
@@ -111,7 +111,7 @@ export function BackgroundScene() {
         inset: 0,
         zIndex: 0,
         pointerEvents: "none",
-        opacity: 0.32,
+        opacity: 0.18,
       }}
     >
       <Canvas
@@ -121,12 +121,12 @@ export function BackgroundScene() {
         onCreated={({ gl }) => gl.setClearColor(0x000000, 0)}
       >
         {/* No fog — let the globe be visible across the whole page */}
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[4, 5, 5]} intensity={1.0} color="#ffffff" />
-        <pointLight position={[-4, -3, 4]} intensity={2.0} color="#76f2ff" />
-        <pointLight position={[4, 4, 2]} intensity={1.5} color="#f7a262" />
+        <ambientLight intensity={0.35} />
+        <directionalLight position={[4, 5, 5]} intensity={0.5} color="#ffffff" />
+        <pointLight position={[-4, -3, 4]} intensity={0.9} color="#76f2ff" />
+        <pointLight position={[4, 4, 2]} intensity={0.7} color="#f7a262" />
         {/* Fewer sparkles for the subtle background version */}
-        <Sparkles count={60} scale={[14, 10, 10]} size={1.4} speed={0.25} color="#ffffff" />
+        <Sparkles count={30} scale={[14, 10, 10]} size={1.0} speed={0.18} color="#ffffff" />
         <Suspense fallback={null}>
           {/* Slower rotation (speed=0.55) so it's ambient, not distracting */}
           <CoreCluster speed={0.55} />
