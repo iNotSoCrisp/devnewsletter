@@ -155,20 +155,13 @@ export function LandingPage() {
       {/* ── navbar ───────────────────────────────────────────────────────── */}
       <header className="fixed inset-x-0 top-4 z-40 px-4 md:px-6">
         <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-white/10 bg-[#081020]/75 px-4 py-3 shadow-[0_16px_60px_rgba(0,0,0,0.3)] backdrop-blur-xl">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/8 font-mono text-xs tracking-[0.2em] text-white/80">
-              LS
-            </div>
-            <div>
-              <p className="text-sm font-semibold tracking-[0.12em] text-white">LastScroll</p>
-              <p className="font-mono text-[0.6rem] uppercase tracking-[0.28em] text-white/40">Trusted Filter</p>
-            </div>
+          <div>
+            <p className="text-sm font-semibold tracking-[0.12em] text-white">LastScroll</p>
           </div>
 
           <nav className="hidden items-center gap-6 text-sm text-white/55 md:flex">
             <a className="transition hover:text-white" href="#problem">Problem</a>
             <a className="transition hover:text-white" href="#channels">Channels</a>
-            <a className="transition hover:text-white" href="#early-access">Join</a>
           </nav>
 
           <a
