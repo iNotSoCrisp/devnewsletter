@@ -62,7 +62,12 @@ function EmailForm({ size = "default" }: { size?: "default" | "large" }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || state === "loading" || state === "done") return;
+    if (!email.trim()) {
+      setErrorMsg("Please enter your email");
+      setState("error");
+      return;
+    }
+    if (state === "loading" || state === "done") return;
     setState("loading");
     setErrorMsg("");
 
@@ -113,7 +118,6 @@ function EmailForm({ size = "default" }: { size?: "default" | "large" }) {
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
         <input
           type="email"
-          required
           placeholder="your@email.com"
           value={email}
           onChange={(e) => { setEmail(e.target.value); if (state === "error") setState("idle"); }}
@@ -132,7 +136,7 @@ function EmailForm({ size = "default" }: { size?: "default" | "large" }) {
         </button>
       </form>
       {state === "error" && errorMsg && (
-        <p className="text-xs text-red-400/90 px-1">{errorMsg}</p>
+        <p className="text-xs text-red-400">{errorMsg}</p>
       )}
     </div>
   );
